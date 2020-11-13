@@ -1,2 +1,2 @@
 # Doap
-Um aplicativo que conecta 
+Um aplicativo que conecta distribuidores e doadores

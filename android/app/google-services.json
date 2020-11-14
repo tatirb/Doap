@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "50406736621",
+    "firebase_url": "https://doap-75d7d.firebaseio.com",
+    "project_id": "doap-75d7d",
+    "storage_bucket": "doap-75d7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50406736621:android:419a9c204c7676d1cf82e4",
+        "android_client_info": {
+          "package_name": "com.tatianareimer.doap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50406736621-pv19h9k2edlm2lnuren1mqpma2pafjtf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxh14r1399E48Uu2AAxY3PFMB-oYOq_40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50406736621-pv19h9k2edlm2lnuren1mqpma2pafjtf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

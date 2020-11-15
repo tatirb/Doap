@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Wrapper(),
+      debugShowCheckedModeBanner: false,
       routes: {
         '/user-profile': (_) => UserProfile(),
       },

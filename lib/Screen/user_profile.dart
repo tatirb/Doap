@@ -12,9 +12,9 @@ class UserProfile extends StatelessWidget {
       child: Scaffold(
       appBar: AppBar(
         title: Text('Perfil'),
-      ),
+      ), // AppBar
       body: UserList(),
-      ),
-    );
+      ), // Scaffold
+    ); // StreamProvider.value
   }
 }

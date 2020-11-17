@@ -17,13 +17,14 @@ class _RegisterState extends State<Register> {
   // text field state
   String email = '';
   String password = '';
+  String name = '';
   String error = '';
   @override
   Widget build(BuildContext context) {
     return loading ? Loading() : Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.deepOrange[400],
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
@@ -41,6 +42,14 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: Column (
             children: <Widget>[
+            SizedBox(height: 20.0),
+            TextFormField(
+              decoration: textInputDecoration.copyWith(hintText: 'Nome'),
+              validator: (val) =>val.isEmpty ? 'Digite um nome' : null,
+              onChanged: (val) {
+                setState(()=> name = val);
+              }
+            ),
             SizedBox(height: 20.0),
             TextFormField(
               decoration: textInputDecoration.copyWith(hintText: 'Email'),
@@ -68,7 +77,7 @@ class _RegisterState extends State<Register> {
                 onPressed: () async {
                   if (_formKey.currentState.validate()) {
                     setState(() => loading = true);
-                    dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                    dynamic result = await _auth.registerWithEmailAndPassword(name, email, password);
                     if (result == null) {
                       setState(() { 
                         error = 'Digite um email válido';

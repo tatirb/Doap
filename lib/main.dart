@@ -15,6 +15,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  //Color selection = Colors.deepOrange[300];
   @override
   Widget build(BuildContext context) {
     return StreamProvider<TheUser>.value (
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
       title: 'Doap',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primaryColor: Colors.deepOrange[400],
+        primarySwatch: Colors.deepOrange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Wrapper(),

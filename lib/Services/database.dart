@@ -1,39 +1,37 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doap/Models/profile.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class DatabaseService {
 
   final String uid;
   DatabaseService({this.uid});
 
-  //collection reference
-  //final CollectionReference userCollection = FirebaseFirestore.instance.collection('user').doc(uid);
-
-  final DocumentReference userCollection = FirebaseFirestore.instance.collection('user').doc('CPzI62vHabbnOyV73Ow83dZjBGh2');
+  final CollectionReference userCollection = FirebaseFirestore.instance.collection('user');
 
   Future updateUserData(String username, String name) async {
-    return await userCollection.set({
+    return await userCollection.doc(uid).set({
       'username': username,
       'name' : name,
     });
-  }
-  // user list from snapshot
-  Profile _userListFromSnapshot(DocumentSnapshot snapshot) {
-    //return snapshot.docs.map((doc) {
-      return Profile(
-        name: snapshot.data()['name'] ?? '',
-        username: snapshot.data()['username'] ?? '',
-      );
-    //}).toList();
+  }    
+
+  String id() {
+    print(uid);
+    return uid;
   }
 
-  //get user stream
-  Stream<Profile> get user {
-    return userCollection.snapshots()
-      .map(_userListFromSnapshot);
+  Future getUserData(String uid) async {
+    return await userCollection.doc(uid).get();
+  }  
+
+  String currentUser() {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    var user = _auth.currentUser;
+    return user.uid;
   }
 
-  
+  Stream<DocumentSnapshot> get user {
+    return userCollection.doc(currentUser()).snapshots();
+  }
 
 }

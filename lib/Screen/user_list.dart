@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:doap/Models/profile.dart';
-import 'package:doap/Screen/user_tile.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserList extends StatefulWidget {
   @override
@@ -11,19 +10,24 @@ class UserList extends StatefulWidget {
 class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
-
-    final user = Provider.of<Profile>(context);
-    
-    //user.forEach((profile) { 
-      //print(profile.name);
-      //print(profile.username);
-    //});
-
-    return ListView.builder(
-      itemCount: 1,
-      itemBuilder: (context, index) {
-        return UserTile(user: user);
-      },
+    final user = Provider.of<DocumentSnapshot>(context);
+    String username = user.get('username');
+    String name = user.get('name');
+    return Padding(
+      padding: EdgeInsets.only(top: 8.0),
+      child: Card(
+        margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
+        child: ListTile(
+          leading: CircleAvatar(
+            radius: 25.0,
+            backgroundColor: Colors.orange,
+          ),
+          title: Text(name),
+          subtitle: Text(username),
+        ),
+      ),
     );
+    
+
   }
 }

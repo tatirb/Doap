@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:doap/Models/profile.dart';
 
@@ -24,3 +25,4 @@ class UserTile extends StatelessWidget {
     );
   }
 }
+*/
